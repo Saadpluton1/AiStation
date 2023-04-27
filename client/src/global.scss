@@ -1,0 +1,197 @@
+h1 {
+    font-family: Segoe UI;
+    text-align: center;
+    line-height: 42px;
+    padding-bottom: 23px;
+    margin: 10px 0px;
+    border-bottom: 1px solid #dadada;
+}
+
+#hash-symbol {
+    color: #484848;
+    font-size: 42px;
+    position: relative;
+    top: 4px;
+}
+
+#app-name {
+    color: #f19000;
+}
+
+section {
+    width: 250px;
+    margin: 100px auto;
+    padding: 60px;
+    background-color: #fff;
+    box-shadow: 0px 5px 35px #d7d7d7;
+    border-radius: 35px;
+}
+
+.toggle-btn {
+    position: relative;
+    width: 45px;
+    height: 25px;
+    // margin: 0 auto;
+    border-radius: 40px;
+}
+
+input[type="checkbox"] {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: 0px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+
+
+
+
+
+/* First toggle btn */
+
+.light #_1st-toggle-btn span {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    overflow: hidden;
+    opacity: 1;
+    background-color: #dfdcdc;
+    border-radius: 40px;
+    transition: 0.2s ease background-color, 0.2s ease opacity;
+}
+
+.dark #_1st-toggle-btn span {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    overflow: hidden;
+    opacity: 1;
+    background-color: #212121;
+    border-radius: 40px;
+    transition: 0.2s ease background-color, 0.2s ease opacity;
+}
+
+#_1st-toggle-btn span:before,
+#_1st-toggle-btn span:after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transition: 0.5s ease transform, 0.2s ease background-color;
+}
+
+#_1st-toggle-btn span:before {
+    background-color: #fff;
+    transform: translate(-58px, 0px);
+    z-index: 1;
+}
+
+#_1st-toggle-btn span:after {
+    background-color: #008cff;
+    transform: translate(4px, 0px);
+    z-index: 0;
+}
+
+#_1st-toggle-btn input[type="checkbox"]:checked+span {
+    background-color: #008cff;
+}
+
+#_1st-toggle-btn input[type="checkbox"]:active+span {
+    opacity: 0.5;
+}
+
+//   #_1st-toggle-btn input[type="checkbox"]:checked + span:before {
+//     background-color: #000;
+//     transform: translate(56px, -19px);
+//   }
+
+.light #_1st-toggle-btn input[type="checkbox"]:checked+span:after {
+    background-color: #fff;
+    transform: translate(25px, 0px);
+}
+
+.dark #_1st-toggle-btn input[type="checkbox"]:checked+span:after {
+    background-color: #000;
+    transform: translate(25px, 0px);
+}
+
+/* First toggle btn completed */
+
+/* Second toggle btn */
+
+.dark ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff !important;
+    filter: drop-shadow(0em 0em 0.021125em rgba(0, 140, 255, 0.950000))
+             drop-shadow(0em 0em 0.105625em rgba(0, 140, 255, 0.750000)) 
+             drop-shadow(0em 0em 0.316875em rgba(0, 140, 255, 0.440000));
+    font-weight: 400;
+    opacity: 1;
+    letter-spacing: 1px;
+    /* Firefox */
+}
+
+.light ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #008cff !important;
+    font-weight: 400;
+    opacity: 1;
+    /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #fff !important;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #fff !important;
+}
+
+
+.gett-started-btn-fill {
+    background-image: linear-gradient(180deg,#008cff 6%,#45abff 59%,#79c1fb);
+    border: 1px solid #008cff !important;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px!important;
+    font-weight: 700;
+    text-transform: uppercase!important;
+    padding: 8px 25px;
+    border-radius: 30px!important;
+}
+
+.gett-started-btn-fill:hover {
+    background: transparent !important;
+    color: #008cff !important;
+}
+.input-groupsdis {
+    border-color: grey !important;
+}
+.input-disabled .get-started-btn-fill{
+    background-color: grey !important;
+    border-color: grey !important;
+}
+.light .green_txt{
+    color: black !important;
+}
+
+.disabled{
+    background: transparent !important;
+    color: grey !important;
+    border-color: grey !important;
+
+}

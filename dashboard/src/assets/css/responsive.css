@@ -1,0 +1,251 @@
+@media (max-width: 480px) {
+    .mobile-bsc{
+        width: 40px !important;
+        display: block;
+    }
+    .head-logo-text{
+    }
+    .header .inner{
+        display: none;
+
+    }
+    .analytics .dashboard-box{
+        width:100% !important;
+    }
+    .mint-section{
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+    .header .address-section {
+        display: flex;
+        align-items: center;
+    }
+    .header img {
+        width: 20px;
+    }
+    .header .address-section {
+        margin-right: 1rem;
+    }
+    .balance-flex {
+        flex-direction: column;
+    }
+    .balance-flex .inner {
+        width: 100% !important;
+    }
+    .token-section .flex {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .stake-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .select-minipool {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .form-check-label span {
+        font-size: 10px;
+    }
+    .border-bg {
+        padding: 2px 13px;
+        font-size: 12px;
+    }
+    .select-minipool .d-flex{
+        margin-top: 1rem;
+    }
+    .absolute-p {
+        top: -54px;
+    }
+    .calculator {
+        flex-direction: column;
+    }
+    .admin-ul li {
+        width: 45%;
+        margin: 15px auto 0px auto;
+    }
+}
+@media (max-width: 400px) {
+    .payment-flex {
+        flex-direction: column;
+    }
+    .token-section .inner {
+        flex-direction:row;
+    }
+    .payment-first-flex{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .historic-flex .filter {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .historic-flex{
+        flex-direction: column;
+    }
+    .historic-flex .filter .flex {
+        width: 50%;
+    }
+    .minipool-check {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .stake-meta .stake-meta-div p {
+        height: 45px;
+    }
+    .stake-meta-div span {
+        top: 57px;
+    }
+    .select-minipool .d-flex {
+        flex-direction: column;
+    }
+    .select-minipool .d-flex .border-bg{
+        margin-bottom: 1rem;
+        padding: 5px 2rem;
+        width: 100%;
+    }
+    .absolute-p {
+        top: -149px;
+        left: 175px;
+    }
+    .trade-section .head {
+        font-size: 15px;
+    }
+    .admin-ul li {
+        width: 100%;
+    }
+}
+@media (max-width: 360px) {
+    .absolute-p {
+        left: 133px;
+    }
+    .calculator-group label {
+        font-size: 10px;
+    }
+    .calculator-ammount p {
+        font-size: 10px;
+    }
+    .section-title, .title-section {
+        font-size: 16px;
+    }
+    .footer-p{
+        font-size: 11px;
+    }
+}
+@media (max-width: 767px) {
+
+   
+
+}
+
+
+@media (max-width: 768px) {
+
+    .main-body .sidebar{
+        width: 0;
+        overflow: hidden;
+    }
+    .main-section{
+        width: 100%;
+    }
+    .mint-section .custom-btn {
+        width: 160px;
+    }
+    .header {
+        padding-left: 1rem;
+    }
+    .open-sidebar-icon{
+        display: block;
+        color: var(--white);
+    }
+    .close-sidebar-icon{
+        display: block;
+    }
+    .payment-top-margin{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .analytics .dashboard-box{
+        /*width:28.33%;*/
+    }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+
+
+
+}
+
+@media (max-width: 1023px) and (min-width: 992px) {
+
+  
+	
+}
+
+@media (max-width: 1280px) and (min-width: 1024px) {
+    .payment-top-margin{
+        margin-top: 1rem;
+    }
+    .payment-flex {
+        flex-direction: column;
+    }
+    .payment-first-flex{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .stake-top {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .stake-meta-div .head {
+        padding: 12px;
+    }
+    .trade-section .head {
+        font-size: 11px;
+    }
+    .stake-time span {
+        padding: 5px 12px;
+    }
+    .stake-meta-div span {
+        font-size: 9px;
+        top: 56px;
+        left: 8px;
+    }
+    .custom-btn {
+        padding: 0.5rem 1rem;
+    }
+    .stake-meta .stake-meta-div p {
+        height: 45px;
+    }
+    .form-check-label span {
+        font-size: 9px;
+    }
+    .border-bg {
+        padding: 5px 15px;
+        margin-right: 7px;
+    }
+    .select-minipool {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .select-minipool .d-flex{
+        margin-top: 1rem;
+    }
+    .absolute-p {
+        top: -54px;
+    }
+    .admin-ul li {
+        width: 31%;
+    }
+    .analytics .dashboard-box{
+        width: 40%;
+    }
+    
+}
+
+@media (max-width: 1500px) and (min-width: 1200px) {
+ 
+}
