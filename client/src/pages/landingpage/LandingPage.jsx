@@ -1,23 +1,21 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Header from './Header'
-import '../../global.css'
-import { GrFormSearch } from 'react-icons/gr'
-import { TbWorld } from 'react-icons/tb'
-import { FaTwitter, FaPaperPlane } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
-import ProgressBar from 'react-bootstrap/ProgressBar';
-import ProjectCard from '../../components/projectCard'
-import axios from 'axios'
-import { SERVER_URL } from '../../utils/constants'
-import { Store } from '../../context/AistationProvider'
-
+import React, { useContext, useEffect, useState } from "react";
+import Header from "./Header";
+import "../../global.css";
+import { GrFormSearch } from "react-icons/gr";
+import { TbWorld } from "react-icons/tb";
+import { FaTwitter, FaPaperPlane } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import ProgressBar from "react-bootstrap/ProgressBar";
+import ProjectCard from "../../components/projectCard";
+import axios from "axios";
+import { SERVER_URL } from "../../utils/constants";
+import { Store } from "../../context/AistationProvider";
 
 const LandingPage = () => {
-
   // const [data, setData] = useState([])
   // const [loadMore, setLoadMore] = useState(false)
-  const [search, setSearch] = useState('')
-  const { data, getData } = useContext(Store)
+  const [search, setSearch] = useState("");
+  const { data, getData } = useContext(Store);
   const [visibleItems, setVisibleItems] = useState(2);
 
   const handleLoadMore = () => {
@@ -25,41 +23,48 @@ const LandingPage = () => {
   };
 
   useEffect(() => {
-
     (async () => {
-      await getData()
+      await getData();
     })();
-  }, [])
-
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-
-
-
   return (
     <div className="logo_overlay">
       <Header />
-      <div className='home-section'>
+      <div className="home-section">
         <div>
           <div className="container">
             <div className="row my-3">
               <div className="col-lg-4 col-md-12"></div>
-              <div className="col-lg-4 col-md-6"><p className='banner_title text-center'>Projects</p></div>
-              <div className="col-lg-4 my-auto p-0 col-md-6 search-bar" style={{ textAlign: 'right' }}>
-                <span className='input_weap'>
-                  <input type="text" className='form-control searc_style_1' placeholder='Project Name' onChange={e => { setSearch(e.target.value) }} />
+              <div className="col-lg-4 col-md-6">
+                <p className="banner_title text-center">Projects</p>
+              </div>
+              <div
+                className="col-lg-4 my-auto p-0 col-md-6 search-bar"
+                style={{ textAlign: "right" }}
+              >
+                <span className="input_weap">
+                  <input
+                    type="text"
+                    className="form-control searc_style_1"
+                    placeholder="Project Name"
+                    onChange={(e) => {
+                      setSearch(e.target.value);
+                    }}
+                  />
                   <GrFormSearch />
                 </span>
               </div>
-              <hr className='hr_yellow mt-3' />
+              <hr className="hr_yellow mt-3" />
             </div>
           </div>
         </div>
       </div>
-      <div className='inner_bg mt-5 mb-5'>
+      <div className="inner_bg mt-5 mb-5">
         <div className="container">
           <div className="row justify-content-between gy-5 card_row_h">
             {/* <div className='col-12 col-lg-6 col-lg-6-custom mb-4'>
@@ -272,16 +277,33 @@ const LandingPage = () => {
               </Link>
             </div> */}
 
-            {data.slice(0, visibleItems).map((d, i) => (
-              <ProjectCard data={d} index={i} />
-            ))}
+            {visibleItems === 2 && (
+              <>
+                {data.reverse()
+                  .slice(0, visibleItems)
+                  .map((d, i) => (
+                    <ProjectCard data={d} index={i} />
+                  ))}
+              </>
+            )}
 
+            {visibleItems > 2 && (
+              <>
+                {data?.map((d, i) => (
+                  <ProjectCard data={d} index={i} />
+                ))}
+              </>
+            )}
           </div>
 
-          <div className='text-center mt-5'>
-
+          <div className="text-center mt-5">
             {visibleItems < data.length && (
-              <button className='get-started-btn get-started-btn-load' onClick={handleLoadMore}>Load More</button>
+              <button
+                className="get-started-btn get-started-btn-load"
+                onClick={handleLoadMore}
+              >
+                Load More
+              </button>
             )}
           </div>
         </div>
@@ -290,12 +312,8 @@ const LandingPage = () => {
       {/* <Button variant="primary" onClick={handleShow}>
         Launch demo modal
       </Button> */}
-
-
     </div>
+  );
+};
 
-
-  )
-}
-
-export default LandingPage
+export default LandingPage;

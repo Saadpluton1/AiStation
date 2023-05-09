@@ -392,7 +392,8 @@ const Create = () => {
                                                                         <div className='datepicker_input input-group'>
                                                                             <DatePicker
                                                                                 required
-                                                                                onChange={date => handleDateTime("st", date.toLocaleString())}
+                                                                                
+                                                                                onChange={date => handleDateTime("st", date)}
                                                                                 selected={startTime}
                                                                                 showTimeSelect
                                                                                 dateFormat="yyyy-MM-dd'T'HH:mm:ss"
@@ -416,12 +417,12 @@ const Create = () => {
                                                                         <div className={`datepicker_input input-group ${isEndTimeDisabled && 'input-groupsdis'}`}>
                                                                             <DatePicker
                                                                                 required
-                                                                                onChange={date => handleDateTime("et", date.toLocaleString())}
+                                                                                onChange={date => handleDateTime("et", date)}
                                                                                 selected={endTime}
                                                                                 showTimeSelect
                                                                                 dateFormat="yyyy-MM-dd'T'HH:mm:ss"
                                                                                 // Set the value of the input field to the selected date
-                                                                                value={endTime ? endTime.toLocaleString() : ""}
+                                                                                value={endTime ? endTime?.toLocaleString() : ""}
                                                                                 disabled={isEndTimeDisabled}
                                                                                 defaultTime={new Date()}
                                                                             />

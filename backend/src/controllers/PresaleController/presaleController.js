@@ -142,6 +142,23 @@ export const getPresaleAdmin = async (req, res) => {
     }
 };
 
+export const deletePresaleAdmin = async (req, res) => {
+    try {
+        const data = await Presale.findByIdAndDelete(req.params.id);
+if(data)
+{
+    res.status(200).json({ status: true, message: "Updated Successfully" });
+}
+else{
+    
+    res.status(400).json({ status: false, message: "Something Error" });
+}
+     } catch (err) {
+        // console.error("Error retrieving presale data:", err);
+        res.status(400).send(err);
+    }
+};
+
 export const updatePresaleStatus = async (req, res) => {
     try {
         const presaleId = req.body._id;

@@ -21,47 +21,30 @@ const createBackendServer = (baseURL) => {
       return Promise.reject(error)
     })
 
-  const updatePresaleStatus = (body) => api.post(`/updatePresaleStatus`, body);
-  const getPresaleAdmin = () => api.get("/getPresaleAdmin")
 
   // /***********    GET REQUESTS    **********/
-  // const getAllUsers = () => api.get(`/admin/user`);
 
-  // const getBlogs = () => api.get(`/admin/blogs`);
-
-  // const getAnalytics = () => api.get(`/admin/analytics`);
+  const getPresaleAdmin = () => api.get("/getPresaleAdmin")
 
 
   // /***********    POST REQUESTS    **********/
 
-  // const addBlog = (body) => api.post(`/admin/blogs`, body);
 
-
-  // /***********    PUT REQUESTS    **********/
-
-  // const editBlogs = (body) => api.put(`/admin/update/blogs`, body);
+  const updatePresaleStatus = (body) => api.post(`/updatePresaleStatus`, body);
 
   // /***********    Delete REQUESTS    **********/
 
-  // const deleteBlog = (id) => api.delete(`/admin/blogs/${id}`);
-  // const deleteUser = (id) => api.delete(`/admin/user/${id}`);
+  const deletePresale = (id) => api.delete(`/getPresaleAdmin/delete/${id}`);
 
 
   return {
     updatePresaleStatus,
     getPresaleAdmin,
-    // getAllUsers,
-    // getBlogs,
-    // deleteBlog,
-    // editBlogs,
-    // addBlog,
-    // deleteUser,
-    // getAnalytics
+    deletePresale
   };
 };
 
-
-// const apis = createBackendServer("http://localhost:5000");
+//const apis = createBackendServer("http://localhost:5000");
 const apis = createBackendServer("http://67.207.94.224");
 
 

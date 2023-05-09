@@ -8,12 +8,9 @@ import { Link } from "react-router-dom";
 
 const Users = () => {
   const [show, setShow] = useState(false);
-  const [blogs, setBlogs] = useState([]);
   const [title, setTitle] = useState("");
-  const [loader, setLoader] = useState(false);
   const [reqireState, SetreqireState] = useState(true);
-  const [isFetching, setFetching] = useState(false);
-
+ 
   const [modalData, setModalData] = useState({ Approval: "" });
 
   const [values, setValues] = useState([]);
@@ -28,38 +25,26 @@ const Users = () => {
       onSuccess: (data) => {
         let presaleData = data?.data;
         setValues(presaleData);
-        // console.log(presaleData)
       },
     }
   );
 
   const { mutate: mutateDelete, isLoading: isLoadingDelete } = useMutation(
-    apis.deleteUser,
+    apis.deletePresale,
     {
       onError: function ({ message }) {
         console.log(message);
       },
       onSuccess: ({ data }) => {
         if (data.status) {
-          refetch();
-          console.log(data);
           toast.success(data.message, { id: 1 });
+          refetch();
+          handleClose();
         }
       },
     }
   );
 
-  // const { mutate: mutateEdit, isLoading: isLoadingEdit } = useMutation(apis.updatePresaleStatus, {
-  //   onError: function ({ message }) {
-  //     console.log(message);
-  //   },
-  //   onSuccess: ({ data }) => {
-  //     if (data.status) {
-  //       refetch()
-  //       toast.success(data.message, { id: 1 })
-  //     }
-  //   },
-  // });
   const { mutate: mutateEdit, isLoading: isLoadingEdit } = useMutation(
     apis.updatePresaleStatus,
     {
@@ -76,22 +61,7 @@ const Users = () => {
       },
     }
   );
-  const { mutate: mutateAddBlog, isLoading: isLoadingAdd } = useMutation(
-    apis.addBlog,
-    {
-      onError: function ({ message }) {
-        console.log(message);
-      },
-      onSuccess: ({ data }) => {
-        if (data.status) {
-          refetch();
-          toast.success(data.message, { id: 1 });
-        }
-      },
-    }
-  );
 
-  // console.log(values, "VALUES")
   const handleShow = (presale, title) => {
     if (title === "Edit Presale") {
       SetreqireState(false);
@@ -104,32 +74,19 @@ const Users = () => {
   const handleClose = () => setShow(false);
 
   const handleSubmit = async (Presale) => {
-    console.log(Presale, "aaaa");
     if (title === "Edit Presale") {
-      const form_data = new FormData();
-      console.log("formdaaa", form_data);
-      console.log("presaleasdasd", Presale.Approval);
-      // console.log("heheh", Presale?.Approval)
-      mutateEdit({ _id: Presale?._id, Approval: Presale?.Approval });
-      // setShow(false);
-      // window.location.reload();
-    } else {
-      const form_data = new FormData();
-      for (const [key, value] of Object.entries(blogs)) {
-        if (key !== "_id") {
-          form_data.append(key, value);
-        }
+      if(Presale.Approval === "Banned")
+      {
+       mutateDelete(Presale._id)
       }
-      mutateAddBlog(form_data);
-      // setShow(false);
-    }
+      else{
+        mutateEdit({ _id: Presale?._id, Approval: Presale?.Approval });
+      }
+    } 
     setShow(false)
   };
 
-  const handleDelete = async (id) => {
-    mutateDelete(id);
-  };
-
+  
   if (isLoading || isLoadingDelete)
     return (
       <div
@@ -152,26 +109,11 @@ const Users = () => {
 
   const renderPresaleList =
     values?.length > 0 &&
-    values.map((presale, index) => {
+    values.map((presale) => {
       const {
         _id,
-        Logo_URL,
         Token_info,
-        Presale_rate,
-        Contribution,
-        Time,
-        Vesting,
-        Vesting_Period_Days,
-        Rewards_Per_Vesting_Period,
-        Softcap,
-        Hardcap,
-        Links,
-        Description,
-        Whitelisted_sale,
-        Status,
-        Access_type,
-        Total_Users_Participated,
-        Total_Funds_Swapped,
+        Time,  
         Approval,
       } = presale;
       return (
@@ -181,36 +123,13 @@ const Users = () => {
               <button className="table-button">View</button>
             </Link>
           </td>
-          {/* <td>{_id}</td>
-          <td>{Logo_URL}</td> */}
+ 
           <td>{Token_info.Token_Address}</td>
           <td>{Token_info.Token_Name}</td>
           <td>{Token_info.Token_Symbol}</td>
-          {/* <td>{Token_info.Token_Decimal}</td> */}
-          {/* <td>{Presale_rate}</td>
-          <td>{Contribution.min}</td>
-          <td>{Contribution.max}</td> */}
+    
           <td>{formatDate(Time.Start)}</td>
           <td>{formatDate(Time.End)}</td>
-          {/* <td>{`${Vesting}`}</td>
-          <td>{Vesting_Period_Days}</td>
-          <td>{Rewards_Per_Vesting_Period}</td>
-          <td>{Softcap?.toLocaleString()}</td>
-          <td>{Hardcap?.toLocaleString()}</td> */}
-          {/* <td >{`${Liquidity}`}</td>
-          <td >{Locking_Days}</td>
-          <td >{Liquidity_Rate_Per_BNB}</td>
-          <td >{Pancakeswap_Liquidity}</td> */}
-          {/* <td>{Links.Website_Link}</td>
-          <td>{Links.Telegram_Link}</td>
-          <td>{Links.Twitter_Link}</td>
-          <td>{Links.Facebook_Link}</td>
-          <td style={{ textAlign: "left" }}>{Description}</td>
-          <td>{`${Whitelisted_sale}`}</td>
-          <td>{Status}</td>
-          <td>{Access_type}</td>
-          <td>{Total_Users_Participated}</td>
-          <td>{Total_Funds_Swapped?.toLocaleString()}</td> */}
           <td>{Approval}</td>
 
           <td>
@@ -221,9 +140,6 @@ const Users = () => {
               >
                 Edit{" "}
               </Button>
-            
-            {/* <Button variant="outline-danger" className='mx-2 my-2 button-size'
-              onClick={() => handleDelete(_id)}>Delete</Button> */}
           </td>
         </tr>
       );
